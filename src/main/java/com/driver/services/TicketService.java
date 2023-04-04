@@ -42,7 +42,6 @@ public class TicketService {
             bookedSeats += ticket.getPassengersList().size();
         }
 
-
         if(bookedSeats+bookTicketEntryDto.getNoOfSeats()> train.getNoOfSeats()){
             throw new Exception("Less tickets are available");
         }

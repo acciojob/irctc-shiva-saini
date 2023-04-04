@@ -120,7 +120,7 @@ public class TrainService {
         return ans;
     }
 
-    public Integer calculateOldestPersonTravelling(Integer trainId) throws Exception {
+    public Integer calculateOldestPersonTravelling(Integer trainId){
 
         //Throughout the journey of the train between any 2 stations
         //We need to find out the age of the oldest person that is travelling the train
