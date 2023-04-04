@@ -106,7 +106,7 @@ public class TrainService {
             }
         }
 
-        if(!f){
+        if(f == false){
             throw new Exception("Train is not passing from this station");
         }
         List<Ticket> ticketList = train.getBookedTickets();
