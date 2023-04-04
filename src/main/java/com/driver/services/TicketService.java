@@ -33,12 +33,8 @@ public class TicketService {
 
         //Check for validity
         //Use bookedTickets List from the TrainRepository to get bookings done against that train
-        Train train;
-        try{
-            train = trainRepository.findById(bookTicketEntryDto.getTrainId()).get();
-        }catch (Exception e){
-            throw new Exception("Invalid Train Id");
-        }
+        Train train = trainRepository.findById(bookTicketEntryDto.getTrainId()).get();
+
 
         int bookedSeats = 0;
         List<Ticket> ticketList = train.getBookedTickets();
