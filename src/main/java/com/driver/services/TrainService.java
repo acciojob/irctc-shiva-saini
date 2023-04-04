@@ -44,14 +44,10 @@ public class TrainService {
         return train.getTrainId();
     }
 
-    public Integer calculateAvailableSeats(SeatAvailabilityEntryDto seatAvailabilityEntryDto) throws Exception {
+    public Integer calculateAvailableSeats(SeatAvailabilityEntryDto seatAvailabilityEntryDto){
 
-        Train train;
-        try{
-            train = trainRepository.findById(seatAvailabilityEntryDto.getTrainId()).get();
-        }catch (Exception e){
-            throw new Exception("Invalid train id");
-        }
+        Train train = trainRepository.findById(seatAvailabilityEntryDto.getTrainId()).get();
+
         String Root[]=train.getRoute().split(",");
 
         HashMap<String,Integer> map = new HashMap<>();
@@ -99,12 +95,8 @@ public class TrainService {
         //if the trainId is not passing through that station
         //throw new Exception("Train is not passing from this station");
         //  in a happy case we need to find out the number of such people.
-        Train train;
-        try{
-            train = trainRepository.findById(trainId).get();
-        }catch (Exception e){
-            throw new Exception("Invalid train id");
-        }
+        Train train = trainRepository.findById(trainId).get();
+
        String stations[] = train.getRoute().split(",");
         boolean f = false;
         for(int i=0;i<stations.length;i++){
@@ -134,12 +126,8 @@ public class TrainService {
         //We need to find out the age of the oldest person that is travelling the train
         //If there are no people travelling in that train you can return 0
 
-        Train train;
-        try{
-            train = trainRepository.findById(trainId).get();
-        }catch (Exception e){
-            throw new Exception("Invalid train id");
-        }
+        Train train = trainRepository.findById(trainId).get();
+
 
         List<Ticket> ticketList = train.getBookedTickets();
         int oldAge = 0;
